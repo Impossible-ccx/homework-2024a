@@ -90,10 +90,77 @@ void tps() {
     }
     else {
         Sleep(40);
+        }
+    }
+    if (ch == 'd') {
+    init(5,5);
+            map[x][y] = '0';
+            x += 1;
+            map[x][y] = 'Y';
+=========
+void fps() {
+    for (int i = 0; i < 20; i++) {
+        for (int j = 0; j < 20; j++) {
+            gotoxy(j+1,i);
+            printf("\b%c", map[i][j]);
+        }
+        printf("\n");
+    }    
+    //printf("%d   %d", x, y);
+}
+void tps() {
+    ch = '\0';
+    Sleep(150);
+    if (kbhit()) ch = getch();
+    //if (true) ch = 'w';
+    else Sleep(40);
+    if (ch == 'w') {
+        if (y - 1 < 0 || map[y-1][x] == '#') {
+            ;
+        }
+        else {
+            map[y][x] = '0';
+            y -= 1;
+            map[y][x] = 'Y';
+        }
+    }
+    if (ch == 's') {
+        if (map[y + 1][x] == 0 || map[y+1][x] == '#') {
+            ;
+        }
+        else {
+            map[y][x] = '0';
+            y += 1;
+            map[y][x] = 'Y';
+        }
+    }
+    if (ch == 'a') {
+        if (x - 1 < 0 || map[y][x-1] == '#') {
+            ;
+        }
+        else {
+            map[y][x] = '0';
+            x -= 1;
+            map[y][x] = 'Y';
+        }
+    }
+    if (ch == 'd') {
+        if (map[y][x + 1] == 0 || map[y][x+1] == '#') {
+            ;
+        }
+        else {
+            map[y][x] = '0';
+            x += 1;
+            map[y][x] = 'Y';
+>>>>>>>>> Temporary merge branch 2
+        }
     }
 }
 int main() {
-    init(5,5);
+<<<<<<<<< Temporary merge branch 1
+=========
+    init(x,y);
+>>>>>>>>> Temporary merge branch 2
     while (1) {
         tps();
         fps();
