@@ -1,19 +1,13 @@
-﻿# CMakeList.txt: homework-2024a 的 CMake 项目，在此处包括源代码并定义
-# 项目特定的逻辑。
-#
+﻿
 
-# 将源代码添加到此项目的可执行文件。
+add_executable (p01 "./level1/p01/p01.cpp")
+add_executable (p02 "./level1/p02/p02.cpp")
+add_executable (p03 "./level1/p03/p03.cpp")
+add_executable (p04 "./level1/p04/p04.cpp")
+add_executable (p05 "./level1/p05/p05.cpp")
+add_executable (p06 "./level1/p06/p06.cpp")
+add_executable (p07 "./level1/p07/p07.cpp")
+add_executable (p08 "./level1/p08/p08.cpp")
+add_executable (p09 "./level1/p09/p09.cpp")
+add_executable (p10 "./level1/p10/p10.cpp")
 
-add_executable (level1 "./level1/p01")
-add_executable (level1 "./level1/p02")
-add_executable (level1 "./level1/p03")
-add_executable (level1 "./level1/p04")
-add_executable (level1 "./level1/p05")
-add_executable (level1 "./level1/p06")
-add_executable (level1 "./level1/p07")
-add_executable (level1 "./level1/p08")
-add_executable (level1 "./level1/p09")
-add_executable (level1 "./level1/p10")
-
-
-# TODO: 如有需要，请添加测试并安装目标。
