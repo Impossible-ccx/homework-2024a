@@ -46,7 +46,7 @@ void tps() {
 
     if (kbhit()) {
         ch = getch();
-		if (ch == 'a') {
+        if (ch == 'a') {
             if (y - 1 < 0 || map[x][y - 1] == '#') {
                 ;
             }
@@ -55,8 +55,8 @@ void tps() {
                 map[x][y - 1] = 'Y';
                 y -= 1;
             }
-		}
-		if (ch == 'd') {
+        }
+        if (ch == 'd') {
             if (map[x][y + 1] == 0 || map[x][y + 1] == '#') {
                 ;
             }
@@ -65,24 +65,24 @@ void tps() {
                 map[x][y + 1] = 'Y';
                 y += 1;
             }
-		}
-		if (ch == 'w') {
-            if (x - 1 < 0 || map[x-1][y] == '#') {
+        }
+        if (ch == 'w') {
+            if (x - 1 < 0 || map[x - 1][y] == '#') {
                 ;
             }
             else {
                 map[x][y] = '0';
-                map[x-1][y] = 'Y';
+                map[x - 1][y] = 'Y';
                 x -= 1;
             }
-		}
-		if (ch == 's') {
-            if (map[x+1][y] == 0 || map[x+1][y] == '#') {
+        }
+        if (ch == 's') {
+            if (map[x + 1][y] == 0 || map[x + 1][y] == '#') {
                 ;
             }
             else {
                 map[x][y] = '0';
-                map[x+1][y] = 'Y';
+                map[x + 1][y] = 'Y';
                 x += 1;
             }
         }
@@ -93,7 +93,7 @@ void tps() {
     }
 }
 int main() {
-    init(5,5);
+    init(5, 5);
     while (1) {
         tps();
         fps();
