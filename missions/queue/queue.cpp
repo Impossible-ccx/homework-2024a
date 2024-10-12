@@ -10,7 +10,10 @@ typedef struct Queue {
 	Node emptyNode;
 }Queue;
 Queue* createQueue() {
-	Queue* newQueue = (Queue*)malloc(sizeof(Queue));
+	Queue* newQueue = NULL;
+	while (newQueue == NULL) {
+		newQueue = (Queue*)malloc(sizeof(Queue));
+	}
 	newQueue->emptyNode.nextNode = &(newQueue->emptyNode);
 	newQueue->emptyNode.preNode = &(newQueue->emptyNode);
 	return newQueue;
@@ -19,7 +22,10 @@ int IsEmpty(Queue* target) {
 	return target->emptyNode.preNode == NULL;
 }
 void append(Queue* target, int value) {
-	Node* newNode = (Node*)malloc(sizeof(Node));
+	Node* newNode = NULL;
+	while (newNode == NULL) {
+		newNode = (Node*)malloc(sizeof(Node));
+	}
 	newNode->value = value;
 	newNode->nextNode = target->emptyNode.nextNode;
 	newNode->preNode = &(target->emptyNode);
