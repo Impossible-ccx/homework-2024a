@@ -19,7 +19,7 @@ Queue* createQueue() {
 	return newQueue;
 }
 int IsEmpty(Queue* target) {
-	return target->emptyNode.preNode == NULL;
+	return target->emptyNode.preNode == &(target->emptyNode);
 }
 void append(Queue* target, int value) {
 	Node* newNode = NULL;
@@ -55,5 +55,6 @@ int main() {
 		printf("%d", top(MyQueue));
 		pop(MyQueue);
 	}
+	printf("%d",IsEmpty(MyQueue));
 	return 0;
 }
