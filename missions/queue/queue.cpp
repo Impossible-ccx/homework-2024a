@@ -32,29 +32,32 @@ void append(Queue* target, int value) {
 	target->emptyNode.nextNode->preNode = newNode;
 	target->emptyNode.nextNode = newNode;
 }
-void pop(Queue* target) {
+int pop(Queue* target) {
+	int val;
 	if (IsEmpty(target)) {
-		;
+		return -1;
 	}
 	else {
+		val = target->emptyNode.preNode->value;
 		target->emptyNode.preNode = target->emptyNode.preNode->preNode;
 		free(target->emptyNode.preNode->nextNode);
 		target->emptyNode.preNode->nextNode = &(target->emptyNode);
+		return val;
 	}
 }
 int top(Queue* target) {
 	return target->emptyNode.preNode->value;
 }
-int main() {
-	Queue* MyQueue = createQueue();
-	for (int i = 0; i < 5; i++) {
-		append(MyQueue, i);
-	}
-	for (int i = 0; i < 5; i++)
-	{
-		printf("%d", top(MyQueue));
-		pop(MyQueue);
-	}
-	printf("%d",IsEmpty(MyQueue));
-	return 0;
-}
+//int main() {
+//	Queue* MyQueue = createQueue();
+//	for (int i = 0; i < 5; i++) {
+//		append(MyQueue, i);
+//	}
+//	for (int i = 0; i < 5; i++)
+//	{
+//		printf("%d", top(MyQueue));
+//		pop(MyQueue);
+//	}
+//	printf("%d",IsEmpty(MyQueue));
+//	return 0;
+//}

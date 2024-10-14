@@ -32,29 +32,32 @@ void append(Stack* target, int value) {
 	target->emptyNode.nextNode->preNode = newNode;
 	target->emptyNode.nextNode = newNode;
 }
-void pop(Stack* target) {
+int pop(Stack* target) {
+	int val;
 	if (IsEmpty(target)) {
-		;
+		return -1;
 	}
 	else {
+		val =  target->emptyNode.nextNode->value;
 		target->emptyNode.nextNode = target->emptyNode.nextNode->nextNode;
 		free(target->emptyNode.nextNode->preNode);
 		target->emptyNode.nextNode->preNode = &(target->emptyNode);
+		return val;
 	}
 }
 int top(Stack* target) {
 	return target->emptyNode.nextNode->value;
 }
-int main() {
-	Stack* MyStack = createStack();
-	for (int i = 0; i < 5; i++) {
-		append(MyStack, i);
-	}
-	for (int i = 0; i < 5; i++)
-	{
-		printf("%d", top(MyStack));
-		pop(MyStack);
-	}
-	printf("%d", IsEmpty(MyStack));
-	return 0;
-}
+//int main() {
+//	Stack* MyStack = createStack();
+//	for (int i = 0; i < 5; i++) {
+//		append(MyStack, i);
+//	}
+//	for (int i = 0; i < 5; i++)
+//	{
+//		printf("%d", top(MyStack));
+//		pop(MyStack);
+//	}
+//	printf("%d", IsEmpty(MyStack));
+//	return 0;
+//}
