@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "PlayerExp": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}

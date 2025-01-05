@@ -10,4 +10,5 @@ add_executable (p07 "./level1/p07/p07.cpp")
 add_executable (p08 "./level1/p08/p08.cpp")
 add_executable (p09 "./level1/p09/p09.cpp")
 add_executable (p10 "./level1/p10/p10.cpp")
+add_executable(SkipList "./level2/SkipList/SkipList.cpp")
 

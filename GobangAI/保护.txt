@@ -1,0 +1,104 @@
+fixed (DrawType* map = &sourceMap.map[0, 0])
+{
+    DrawType** tm = stackalloc DrawType*[mx];
+    for(int i = 0; i < my; i++)
+    {
+        tm[i] = &map[i * my];
+    }
+    //x
+    {
+        for (int i = -4; i <= 4; i++)
+        {
+            if (tx + i < 0 || tx + i >= mx)
+            {
+                vect[i + 4] = DrawType.Wall;
+            }
+            else
+            {
+                DrawType temp = tm[tx + i][ty];
+                if (temp == opd)
+                {
+                    vect[i + 4] = DrawType.Wall;
+                }
+                else
+                {
+                    vect[i + 4] = temp;
+                }
+            }
+        }
+        res = EvaUp(res, table[GetIndex(vect)]);
+    }
+    //y
+    {
+        for (int i = -4; i <= 4; i++)
+        {
+            if (ty + i < 0 || ty + i >= my)
+            {
+                vect[i + 4] = DrawType.Wall;
+            }
+            else
+            {
+                var temp = tm[tx][ty + i];
+                if (temp == opd)
+                {
+                    vect[i + 4] = DrawType.Wall;
+                }
+                else
+                {
+                    vect[i + 4] = temp;
+                }
+            }
+        }
+        res = EvaUp(res, table[GetIndex(vect)]);
+    }
+    //xy
+    {
+        for (int i = -4; i <= 4; i++)
+        {
+            int nx = tx + i;
+            int ny = ty + i;
+            if (nx < 0 || ny < 0 || nx >= mx || ny >= my)
+            {
+                vect[i + 4] = DrawType.Wall;
+            }
+            else
+            {
+                var temp = tm[nx][ny];
+                if (temp == opd)
+                {
+                    vect[i + 4] = DrawType.Wall;
+                }
+                else
+                {
+                    vect[i + 4] = temp;
+                }
+            }
+        }
+        res = EvaUp(res, table[GetIndex(vect)]);
+    }
+    //yx
+    {
+        for (int i = -4; i <= 4; i++)
+        {
+            int nx = tx - i;
+            int ny = ty + i;
+            if (nx < 0 || ny < 0 || nx >= mx || ny >= my)
+            {
+                vect[i + 4] = DrawType.Wall;
+            }
+            else
+            {
+                var temp = tm[nx][ny];
+                if (temp == opd)
+                {
+                    vect[i + 4] = DrawType.Wall;
+                }
+                else
+                {
+                    vect[i + 4] = temp;
+                }
+            }
+        }
+        res = EvaUp(res, table[GetIndex(vect)]);
+    }
+}
